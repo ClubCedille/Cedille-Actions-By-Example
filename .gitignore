@@ -1,0 +1,51 @@
+# Go build artifacts
+/bin/
+/vendor/
+
+# Go module cache
+go.sum
+go.mod
+*.mod
+*.sum
+
+# Compiled binaries
+*.exe
+*.out
+*.o
+*.a
+
+# Logs and databases
+*.log
+*.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# IDEs and editors
+/.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.log
+*.sln
+*.swp
+*.swm
+*.swo
+*.swn
+.vscode/
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Docker artifacts
+*.env # Be cautious with environment files, they may contain secrets!
+Dockerfile.* # If you have multiple Dockerfiles
+docker-compose.*.yml # If you have multiple docker-compose files
+
+# GitHub action output (if any)
+/output/
+
+# KubeSketcher output
+find-namespaces

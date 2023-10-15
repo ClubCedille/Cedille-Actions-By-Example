@@ -1,0 +1,12 @@
+name: 'KubeSketcher'
+description: 'Generate Kubernetes namespaces architecture diagrams from manifests using k8sviz'
+author: 'SonOfLope/ClubCedille'
+
+inputs:
+  kubeconfig:
+    description: 'Kubeconfig content to connect to the cluster'
+    required: true
+    
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
