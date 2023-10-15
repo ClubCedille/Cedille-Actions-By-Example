@@ -6,7 +6,13 @@ inputs:
   kubeconfig:
     description: 'Kubeconfig content to connect to the cluster'
     required: true
-    
+  BUCKET_URL:
+    description: 'URL of the GCP bucket to upload the images'
+    required: true
+  GCP_SA_KEY:
+    description: 'Service Account key for GCP authentication'
+    required: true
+
 runs:
   using: 'docker'
   image: 'Dockerfile'

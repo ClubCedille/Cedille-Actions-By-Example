@@ -40,7 +40,7 @@ go.mod
 Thumbs.db
 
 # Docker artifacts
-*.env # Be cautious with environment files, they may contain secrets!
+.env
 Dockerfile.* # If you have multiple Dockerfiles
 docker-compose.*.yml # If you have multiple docker-compose files
 
