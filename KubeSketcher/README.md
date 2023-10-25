@@ -10,6 +10,12 @@ Lorsqu'une pull request modifie un ou plusieurs fichiers YAML Kubernetes, KubeSk
 ### `kubeconfig` (Obligatoire)
 Le contenu de votre `kubeconfig` utilisé pour se connecter au cluster Kubernetes.  
 Exemple : `kubeconfig: ${{ secrets.KUBECONFIG }}`
+### `BUCKET_URL` (Obligatoire)
+L'URL du seau GCP où les images seront téléchargées.
+Exemple : `BUCKET_URL: ${{ secrets.BUCKET_URL }}`
+### `GCP_SA_KEY` (Obligatoire)
+La clé du compte de service utilisée pour l'authentification GCP.
+Exemple : `GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}`
 
 ## Sorties
 
@@ -33,12 +39,14 @@ jobs:
   generate-diagrams:
     runs-on: ubuntu-latest
     steps:
-    - name: Récupération du code
+    - name: Check out code
       uses: actions/checkout@v2
 
-    - name: Génération des diagrammes Kubernetes
-      uses: ClubCedille/Cedille-Actions-By-Example/kubesketcher@v1.0
+    - name: Generate Kubernetes diagrams
+      uses: ClubCedille/Cedille-Actions-By-Example/kubesketcher
       with:
         kubeconfig: ${{ secrets.KUBECONFIG }}
+        BUCKET_URL: ${{ secrets.BUCKET_URL }}
+        GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
 ```
 
