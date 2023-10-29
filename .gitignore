@@ -2,12 +2,6 @@
 /bin/
 /vendor/
 
-# Go module cache
-go.sum
-go.mod
-*.mod
-*.sum
-
 # Compiled binaries
 *.exe
 *.out
