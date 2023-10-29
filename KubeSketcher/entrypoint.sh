@@ -14,6 +14,11 @@ for FILE in $CHANGED_FILES; do
     fi
 done
 
+if [ -z "$CHANGED_YAMLS" ]; then
+    echo "No YAML files detected in the changes."
+    exit 0
+fi
+
 NAMESPACES=$(find-namespaces $CHANGED_YAMLS)
 
 # Generate diagrams for each namespace
