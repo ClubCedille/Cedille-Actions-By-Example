@@ -1,5 +1,5 @@
 #!/bin/sh -l
-echo "$INPUT_KUBECONFIG" > /tmp/kubeconfig.yaml
+echo "$KUBECONFIG" > /tmp/kubeconfig.yaml
 export KUBECONFIG=/tmp/kubeconfig.yaml
 
 echo "$GCP_SA_KEY" > /tmp/gcp_key.json
