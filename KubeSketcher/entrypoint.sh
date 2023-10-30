@@ -1,7 +1,9 @@
 #!/bin/sh -l
-KUBECONFIG=${1:?"Missing KUBECONFIG"}
-GCP_SA_KEY=${2:?"Missing GCP_SA_KEY"}
-BUCKET_URL=${3:?"Missing BUCKET_URL"}
+set -e
+
+KUBECONFIG=${INPUT_KUBECONFIG}
+GCP_SA_KEY=${INPUT_GCP_SA_KEY}
+BUCKET_URL=${INPUT_BUCKET_URL}
 
 echo ${KUBECONFIG} > /tmp/kubeconfig.yaml
 export KUBECONFIG=/tmp/kubeconfig.yaml
