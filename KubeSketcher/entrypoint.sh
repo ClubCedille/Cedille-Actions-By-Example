@@ -1,8 +1,7 @@
 #!/bin/sh -l
-const core = require("@actions/core");
-const KUBECONFIG = core.getInput('KUBECONFIG');
-const GCP_SA_KEY = core.getInput('GCP_SA_KEY');
-const BUCKET_URL = core.getInput('BUCKET_URL');
+KUBECONFIG=${1:?"Missing KUBECONFIG"}
+GCP_SA_KEY=${2:?"Missing GCP_SA_KEY"}
+BUCKET_URL=${3:?"Missing BUCKET_URL"}
 
 echo ${KUBECONFIG} > /tmp/kubeconfig.yaml
 export KUBECONFIG=/tmp/kubeconfig.yaml
