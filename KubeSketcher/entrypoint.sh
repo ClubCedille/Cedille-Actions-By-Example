@@ -11,6 +11,7 @@ export KUBECONFIG=/tmp/kubeconfig.yaml
 echo "$GCP_SA_KEY" | base64 -d > /tmp/gcp_key.json
 gcloud auth activate-service-account --key-file=/tmp/gcp_key.json
 
+git config --global --add safe.directory /github/workspace
 CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD)
 
 CHANGED_YAMLS=""
