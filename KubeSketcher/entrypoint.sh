@@ -8,7 +8,7 @@ BUCKET_URL=${INPUT_BUCKET_URL}
 echo ${KUBECONFIG} > /tmp/kubeconfig.yaml
 export KUBECONFIG=/tmp/kubeconfig.yaml
 
-echo ${GCP_SA_KEY} > /tmp/gcp_key.json
+echo "$GCP_SA_KEY" | base64 -d > /tmp/gcp_key.json
 gcloud auth activate-service-account --key-file=/tmp/gcp_key.json
 
 CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD)
