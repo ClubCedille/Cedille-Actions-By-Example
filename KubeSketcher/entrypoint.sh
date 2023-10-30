@@ -1,8 +1,13 @@
 #!/bin/sh -l
-echo "$KUBECONFIG" > /tmp/kubeconfig.yaml
+const core = require("@actions/core");
+const KUBECONFIG = core.getInput('KUBECONFIG');
+const GCP_SA_KEY = core.getInput('GCP_SA_KEY');
+const BUCKET_URL = core.getInput('BUCKET_URL');
+
+echo ${KUBECONFIG} > /tmp/kubeconfig.yaml
 export KUBECONFIG=/tmp/kubeconfig.yaml
 
-echo "$GCP_SA_KEY" > /tmp/gcp_key.json
+echo ${GCP_SA_KEY} > /tmp/gcp_key.json
 gcloud auth activate-service-account --key-file=/tmp/gcp_key.json
 
 CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD)
@@ -25,7 +30,7 @@ NAMESPACES=$(find-namespaces $CHANGED_YAMLS)
 for NS in $NAMESPACES; do
     k8sviz -k /tmp/kubeconfig.yaml -n $NS -t png -o ${NS}_diagram.png
     # Upload image to GCP bucket
-    gsutil cp  -a public-read ${NS}_diagram.png $BUCKET_URL/${NS}_diagram.png
+    gsutil cp  -a public-read ${NS}_diagram.png ${BUCKET_URL}/${NS}_diagram.png
 
     IMAGE_URL="https://storage.googleapis.com/cedille-bucket/${NS}_diagram.png"
     COMMENT_BODY="Diagram for namespace $NS: ![Diagram]($IMAGE_URL)"
