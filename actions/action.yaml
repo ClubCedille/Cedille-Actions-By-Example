@@ -1,0 +1,10 @@
+name: 'Print Message'
+description: 'Imprime un message dans la console'
+author: 'Andrei22131/ClubCedille'
+inputs:
+  message:
+    description: 'Le message à imprimer'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
