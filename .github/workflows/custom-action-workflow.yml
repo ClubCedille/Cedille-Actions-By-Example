@@ -7,16 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20' 
-
-      - name: Install dependencies for custom action
-        run: npm install
-        working-directory: ClubCedille/Cedille-Actions-By-Example/actions@master
+        uses: actions
 
       - name: Run custom action
         uses: ClubCedille/Cedille-Actions-By-Example/actions@master
