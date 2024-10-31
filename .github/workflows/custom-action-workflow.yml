@@ -10,6 +10,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run custom action
-        uses: ClubCedille/Cedille-Actions-By-Example/actions
+        uses: ClubCedille/Cedille-Actions-By-Example/actions@master
         with:
           message: "Bonjour depuis l'action personnalisée !"
