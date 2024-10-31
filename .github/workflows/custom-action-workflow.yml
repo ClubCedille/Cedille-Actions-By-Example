@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: WorkflowWikiExample/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Run custom action
         uses: ClubCedille/Cedille-Actions-By-Example/WorkflowWikiExample@master
